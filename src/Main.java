@@ -23,7 +23,7 @@ public class Main {
 
         }
         System.out.println("Gnome Sort");
-        GnomeSort.gnomeSort(valNumbers,valNumbers.length-1);
+        GnomeSort.gnomeSort(valNumbers,valNumbers.length);
         System.out.println("Merge Sort");
         MergeSort.sort(valNumbers,0,valNumbers.length-1);
         System.out.println("Quick Sort");

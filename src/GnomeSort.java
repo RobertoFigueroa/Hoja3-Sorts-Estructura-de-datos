@@ -3,7 +3,7 @@
  * */
 
 public class GnomeSort {
-    static void gnomeSort(Comparable arr[], int n)
+    static Comparable[] gnomeSort(Comparable arr[], int n)
     {
         int index = 0;
 
@@ -21,6 +21,6 @@ public class GnomeSort {
                 index--;
             }
         }
-        return;
+        return arr;
     }
 }

@@ -4,7 +4,7 @@
 
 public class MergeSort {
 
-    static void merge(Comparable arr[], int l, int m, int r)
+    static Comparable[] merge(Comparable arr[], int l, int m, int r)
     {
         // Find sizes of two subarrays to be merged
         int n1 = m - l + 1;
@@ -58,11 +58,12 @@ public class MergeSort {
             j++;
             k++;
         }
+        return arr;
     }
 
     // Main function that sorts arr[l..r] using
     // merge()
-    static void sort(Comparable arr[], int l, int r)
+    static Comparable[] sort(Comparable arr[], int l, int r)
     {
         if (l < r)
         {
@@ -76,5 +77,6 @@ public class MergeSort {
             // Merge the sorted halves
             merge(arr, l, m, r);
         }
+        return arr;
     }
 }

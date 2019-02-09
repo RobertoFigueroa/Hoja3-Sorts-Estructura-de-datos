@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class QuickSort{
 
-     static void quickSort(Comparable[] vector, int izquierda, int derecha) {
+     static Comparable[] quickSort(Comparable[] vector, int izquierda, int derecha) {
         int pivote = (int)vector[izquierda];
         int i = izquierda;
         int j = derecha;
@@ -36,6 +36,7 @@ public class QuickSort{
         if (j + 1 < derecha) {
             quickSort(vector, j + 1, derecha);
         }
+        return vector;
     }
 
 

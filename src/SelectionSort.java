@@ -7,7 +7,7 @@
 
 class SelectionSort
 {
-    static void sort(Comparable arr[]) {
+    static Comparable[] sort(Comparable arr[]) {
         int n = arr.length;
 
         // One by one move boundary of unsorted subarray 
@@ -24,7 +24,7 @@ class SelectionSort
             arr[min_idx] = arr[i];
             arr[i] = temp;
         }
-
+        return arr;
     }
 
 }

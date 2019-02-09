@@ -21,7 +21,7 @@ class Radix {
 
     // A function to do counting sort of arr[] according to
     // the digit represented by exp.
-    static void countSort(Comparable arr[], int n, int exp) {
+    static Comparable[] countSort(Comparable arr[], int n, int exp) {
         int output[] = new int[n]; // output array
         int i;
         int count[] = new int[10];
@@ -46,11 +46,12 @@ class Radix {
         // contains sorted numbers according to curent digit
         for (i = 0; i < n; i++)
             arr[i] = output[i];
+        return arr;
     }
 
     // The main function to that sorts arr[] of size n using
     // Radix Sort
-    static void radixsort(Comparable arr[], int n) {
+    static Comparable[] radixsort(Comparable arr[], int n) {
         // Find the maximum number to know number of digits
         int m = getMax(arr, n);
 
@@ -59,6 +60,7 @@ class Radix {
         // where i is current digit number
         for (int exp = 1; m / exp > 0; exp *= 10)
             countSort(arr, n, exp);
+        return arr;
     }
 }
 
