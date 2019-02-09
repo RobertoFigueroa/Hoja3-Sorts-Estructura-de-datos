@@ -1,61 +1,56 @@
+/*
+ * Roberto Figueroa , Steven Chan
+ * QuickSort class : Ordenamiento de numeros por algoritmo QuickSort
+ * Extraído de : https://es.stackoverflow.com/questions/7836/c%C3%B3mo-funciona-el-algoritmo-de-quicksort
+ * */
 
-/*Extraído de: http://www.vogella.com/tutorials/JavaAlgorithmsQuicksort/article.html*/
 
+import java.util.Random;
 
-public class QuickSort  {
-        private int[] numbers;
-        private int number;
+public class QuickSort{
 
-        public void sort(int[] values) {
-            // check for empty or null array
-            if (values ==null || values.length==0){
-                return;
+    public static void quickSort(Comparable[] vector, int izquierda, int derecha) {
+        int pivote = (int)vector[izquierda];
+        int i = izquierda;
+        int j = derecha;
+        int auxIntercambio;
+        while (i < j) {
+                    //vector[i].compareTo(pivote) == 0 || vector[i].compareTo(pivote) == 1
+            while ((vector[i].compareTo(pivote) == 0 || vector[i].compareTo(pivote) == -1) && i < j) {
+                i++;
             }
-            this.numbers = values;
-            number = values.length;
-            quicksort(0, number - 1);
-        }
-
-        private void quicksort(int low, int high) {
-            int i = low, j = high;
-            // Get the pivot element from the middle of the list
-            int pivot = numbers[low + (high-low)/2];
-
-            // Divide into two lists
-            while (i <= j) {
-                // If the current value from the left list is smaller than the pivot
-                // element then get the next element from the left list
-                while (numbers[i] < pivot) {
-                    i++;
-                }
-                // If the current value from the right list is larger than the pivot
-                // element then get the next element from the right list
-                while (numbers[j] > pivot) {
-                    j--;
-                }
-
-                // If we have found a value in the left list which is larger than
-                // the pivot element and if we have found a value in the right list
-                // which is smaller than the pivot element then we exchange the
-                // values.
-                // As we are done we can increase i and j
-                if (i <= j) {
-                    exchange(i, j);
-                    i++;
-                    j--;
-                }
+            while (vector[j].compareTo(pivote) == 1) {
+                j--;
             }
-            // Recursion
-            if (low < j)
-                quicksort(low, j);
-            if (i < high)
-                quicksort(i, high);
+            if (i < j) {
+                auxIntercambio = (int)vector[i];
+                vector[i] = vector[j];
+                vector[j] = auxIntercambio;
+            }
         }
-
-        private void exchange(int i, int j) {
-            int temp = numbers[i];
-            numbers[i] = numbers[j];
-            numbers[j] = temp;
+        vector[izquierda] = vector[j];
+        vector[j] = pivote;
+        if (izquierda < j - 1) {
+            quickSort(vector, izquierda, j - 1);
+        }
+        if (j + 1 < derecha) {
+            quickSort(vector, j + 1, derecha);
         }
     }
+    public static void main(String[] args) {
+        Comparable[] numeros = new Comparable[40];
+        Random rnd = new Random();
+        System.out.println("Vector desordenado");
+        for (int i = 0; i < numeros.length; i++) {
+            numeros[i] = rnd.nextInt(50);
+            System.out.print(numeros[i] + " ");
+        }
+        QuickSort.quickSort(numeros, 0, numeros.length - 1);
+        System.out.println("\nVector Ordenado");
+        for (Comparable n : numeros) {
+            System.out.print(n + " ");
+        }
 
+    }
+
+}
