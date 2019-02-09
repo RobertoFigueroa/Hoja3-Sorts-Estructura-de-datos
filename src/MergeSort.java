@@ -4,7 +4,7 @@
 
 public class MergeSort {
 
-    void merge(int arr[], int l, int m, int r)
+    static void merge(Comparable arr[], int l, int m, int r)
     {
         // Find sizes of two subarrays to be merged
         int n1 = m - l + 1;
@@ -16,9 +16,9 @@ public class MergeSort {
 
         /*Copy data to temp arrays*/
         for (int i=0; i<n1; ++i)
-            L[i] = arr[l + i];
+            L[i] = (int)arr[l + i];
         for (int j=0; j<n2; ++j)
-            R[j] = arr[m + 1+ j];
+            R[j] = (int)arr[m + 1+ j];
 
 
         /* Merge the temp arrays */
@@ -62,7 +62,7 @@ public class MergeSort {
 
     // Main function that sorts arr[l..r] using
     // merge()
-    void sort(int arr[], int l, int r)
+    static void sort(Comparable arr[], int l, int r)
     {
         if (l < r)
         {

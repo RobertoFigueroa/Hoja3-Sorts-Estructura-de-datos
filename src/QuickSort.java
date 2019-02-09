@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class QuickSort{
 
-    public static void quickSort(Comparable[] vector, int izquierda, int derecha) {
+     static void quickSort(Comparable[] vector, int izquierda, int derecha) {
         int pivote = (int)vector[izquierda];
         int i = izquierda;
         int j = derecha;
@@ -37,20 +37,6 @@ public class QuickSort{
             quickSort(vector, j + 1, derecha);
         }
     }
-    public static void main(String[] args) {
-        Comparable[] numeros = new Comparable[40];
-        Random rnd = new Random();
-        System.out.println("Vector desordenado");
-        for (int i = 0; i < numeros.length; i++) {
-            numeros[i] = rnd.nextInt(50);
-            System.out.print(numeros[i] + " ");
-        }
-        QuickSort.quickSort(numeros, 0, numeros.length - 1);
-        System.out.println("\nVector Ordenado");
-        for (Comparable n : numeros) {
-            System.out.print(n + " ");
-        }
 
-    }
 
 }

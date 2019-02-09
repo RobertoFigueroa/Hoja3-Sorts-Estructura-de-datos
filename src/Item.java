@@ -8,8 +8,12 @@ public class Item  implements Comparable {
 
     @Override
     public int compareTo(Object object) {
-        int valor = ((Integer)object).intValue();
-        int valueToReturn = Integer.compare(item,valor);
+        Item obj = (Item)object;
+        int valueToReturn = item.compareTo(obj.getItem());
         return valueToReturn;
+
+    }
+    public int getItem(){
+        return item;
     }
 }
